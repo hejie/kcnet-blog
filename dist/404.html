@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - 页面失踪了</title>
+    <link href="assets/css/style.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen flex items-center justify-center">
+    <div class="text-center px-4">
+        <div class="mb-8 select-none">
+            <div class="text-9xl font-bold text-green-500 animate-bounce">
+                404
+            </div>
+            <div class="text-2xl mt-4 font-light">
+                ╮(╯▽╰)╭
+            </div>
+        </div>
+        
+        <h1 class="text-2xl font-bold mb-4">
+            糟糕！页面迷路了
+        </h1>
+        
+        <p class="text-gray-400 mb-8">
+            这个页面可能去喝咖啡了，或者只是在放个小假
+        </p>
+
+        <div class="space-y-4">
+            <a href="/" 
+               class="inline-block px-6 py-2 bg-green-600 hover:bg-green-700 rounded-lg transition-colors">
+                返回首页
+            </a>
+            
+            <div class="text-sm text-gray-500 mt-4">
+                提示：试试按 F5 召唤它回来？
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 随机显示不同的幽默文案
+        const messages = [
+            "这个页面可能去喝咖啡了，或者只是在放个小假",
+            "页面说它需要一点私人空间",
+            "404 不是错误，是页面在跟你玩捉迷藏",
+            "这里本来有个页面，但它选择了gap year",
+            "抱歉，页面今天休假，明天再来吧"
+        ];
+        
+        window.onload = () => {
+            const messageEl = document.querySelector('p.text-gray-400');
+            messageEl.textContent = messages[Math.floor(Math.random() * messages.length)];
+        }
+    </script>
+</body>
+</html>
