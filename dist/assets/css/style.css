@@ -4,16 +4,16 @@
 }
 
 ::-webkit-scrollbar-track {
-    background: hsl(0, 0%, 10%);
+    background: hsl(222, 84%, 5%);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #4a4a4a;
+    background: #475569;
     border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #5a5a5a;
+    background: #64748b;
 }
 
 /* 平滑滚动 */
@@ -42,14 +42,14 @@ a {
 /* 内容过渡动画 */
 #main-content {
     opacity: 0;
-    transform: translateX(10px);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(10px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     width: 100%;
 }
 
 #main-content.loaded {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
 }
 
 /* 防止内容跳动 */
@@ -63,10 +63,16 @@ a {
     aside {
         position: relative !important;
         height: auto !important;
+        width: 100% !important;
     }
     
     main {
         margin-left: 0 !important;
+        width: 100% !important;
+    }
+
+    #main-content {
+        padding: 1rem !important;
     }
 }
 
@@ -81,4 +87,137 @@ a {
         max-width: calc(100% - 2rem);
         margin: 0 auto;
     }
+}
+
+/* 自定义渐变背景 */
+.gradient-bg {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+}
+
+/* 卡片悬停效果 */
+.card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* 文字渐变效果 */
+.text-gradient {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* 按钮样式 */
+.btn-primary {
+    @apply px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200;
+}
+
+.btn-secondary {
+    @apply px-6 py-3 bg-slate-700 hover:bg-slate-600 text-white font-medium rounded-lg transition-colors duration-200;
+}
+
+/* 标签样式 */
+.tag {
+    @apply px-3 py-1 rounded-full text-xs font-medium transition-colors duration-200;
+}
+
+.tag-blue {
+    @apply bg-blue-500/20 text-blue-300;
+}
+
+.tag-purple {
+    @apply bg-purple-500/20 text-purple-300;
+}
+
+.tag-green {
+    @apply bg-green-500/20 text-green-300;
+}
+
+.tag-orange {
+    @apply bg-orange-500/20 text-orange-300;
+}
+
+.tag-pink {
+    @apply bg-pink-500/20 text-pink-300;
+}
+
+.tag-indigo {
+    @apply bg-indigo-500/20 text-indigo-300;
+}
+
+.tag-teal {
+    @apply bg-teal-500/20 text-teal-300;
+}
+
+.tag-yellow {
+    @apply bg-yellow-500/20 text-yellow-300;
+}
+
+.tag-red {
+    @apply bg-red-500/20 text-red-300;
+}
+
+.tag-cyan {
+    @apply bg-cyan-500/20 text-cyan-300;
+}
+
+.tag-emerald {
+    @apply bg-emerald-500/20 text-emerald-300;
+}
+
+.tag-violet {
+    @apply bg-violet-500/20 text-violet-300;
+}
+
+/* 动画效果 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* 响应式字体大小 */
+@media (max-width: 640px) {
+    .text-4xl {
+        font-size: 2rem;
+    }
+    .text-5xl {
+        font-size: 2.5rem;
+    }
+}
+
+/* 深色模式优化 */
+.dark {
+    color-scheme: dark;
+}
+
+/* 焦点样式 */
+*:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+/* 选择文本样式 */
+::selection {
+    background-color: #3b82f6;
+    color: white;
+}
+
+::-moz-selection {
+    background-color: #3b82f6;
+    color: white;
 }

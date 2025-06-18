@@ -1,67 +1,184 @@
-<div class="bg-gray-800 rounded-lg p-8 shadow-lg">
-    <h1 class="text-4xl font-bold mb-8 text-green-400">标签云</h1>
-    
-    <!-- 标签统计 -->
-    <div class="mb-8 p-4 bg-gray-700 rounded-lg">
-        <p class="text-gray-300">
-            共计 <span class="text-green-400 font-bold">7</span> 个标签
+<div class="space-y-12">
+    <!-- 页面标题 -->
+    <section class="text-center space-y-6">
+        <h1 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            标签分类
+        </h1>
+        <p class="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
+            通过标签快速找到你感兴趣的技术话题和文章
         </p>
-    </div>
+    </section>
 
-    <!-- 标签云 -->
-    <div class="flex flex-wrap gap-4">
-        <a href="#" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-full text-green-400 hover:text-green-300 transition-colors flex items-center group">
-            <span>Web开发</span>
-            <span class="ml-2 px-2 py-1 bg-gray-800 rounded-full text-sm group-hover:bg-gray-700">13</span>
-        </a>
-        <a href="#" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-full text-green-400 hover:text-green-300 transition-colors flex items-center group">
-            <span>机器学习</span>
-            <span class="ml-2 px-2 py-1 bg-gray-800 rounded-full text-sm group-hover:bg-gray-700">20</span>
-        </a>
-        <a href="#" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-full text-green-400 hover:text-green-300 transition-colors flex items-center group">
-            <span>Python</span>
-            <span class="ml-2 px-2 py-1 bg-gray-800 rounded-full text-sm group-hover:bg-gray-700">15</span>
-        </a>
-        <a href="#" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-full text-green-400 hover:text-green-300 transition-colors flex items-center group">
-            <span>JavaScript</span>
-            <span class="ml-2 px-2 py-1 bg-gray-800 rounded-full text-sm group-hover:bg-gray-700">11</span>
-        </a>
-        <a href="#" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-full text-green-400 hover:text-green-300 transition-colors flex items-center group">
-            <span>神经网络</span>
-            <span class="ml-2 px-2 py-1 bg-gray-800 rounded-full text-sm group-hover:bg-gray-700">11</span>
-        </a>
-        <a href="#" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-full text-green-400 hover:text-green-300 transition-colors flex items-center group">
-            <span>最佳实践</span>
-            <span class="ml-2 px-2 py-1 bg-gray-800 rounded-full text-sm group-hover:bg-gray-700">10</span>
-        </a>
-        <a href="#" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-full text-green-400 hover:text-green-300 transition-colors flex items-center group">
-            <span>初学者指南</span>
-            <span class="ml-2 px-2 py-1 bg-gray-800 rounded-full text-sm group-hover:bg-gray-700">25</span>
-        </a>
-    </div>
-
-    <!-- 最近标签 -->
-    <div class="mt-12">
-        <h2 class="text-2xl font-semibold mb-6 text-green-400">最近更新</h2>
-        <div class="space-y-4">
-            <a href="#" class="block p-4 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors">
-                <div class="flex justify-between items-center">
-                    <span class="text-gray-300 hover:text-green-400">使用 Gatsby.js 实现暗色模式的简单指南</span>
-                    <span class="text-sm text-gray-500">Web开发</span>
+    <!-- 热门标签 -->
+    <section class="space-y-8">
+        <h2 class="text-2xl font-semibold text-white">热门标签</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <a href="#" class="group bg-slate-800/30 rounded-xl p-6 border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300 hover:bg-slate-800/50">
+                <div class="text-center space-y-3">
+                    <div class="w-12 h-12 mx-auto bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-white group-hover:text-blue-400 transition-colors">深度学习</h3>
+                    <p class="text-sm text-slate-400">15篇文章</p>
                 </div>
             </a>
-            <a href="#" class="block p-4 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors">
-                <div class="flex justify-between items-center">
-                    <span class="text-gray-300 hover:text-green-400">Python 机器学习入门：从零开始</span>
-                    <span class="text-sm text-gray-500">机器学习</span>
+
+            <a href="#" class="group bg-slate-800/30 rounded-xl p-6 border border-slate-700/50 hover:border-purple-500/50 transition-all duration-300 hover:bg-slate-800/50">
+                <div class="text-center space-y-3">
+                    <div class="w-12 h-12 mx-auto bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-white group-hover:text-purple-400 transition-colors">多模态</h3>
+                    <p class="text-sm text-slate-400">12篇文章</p>
                 </div>
             </a>
-            <a href="#" class="block p-4 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors">
-                <div class="flex justify-between items-center">
-                    <span class="text-gray-300 hover:text-green-400">深入理解 JavaScript 闭包</span>
-                    <span class="text-sm text-gray-500">JavaScript</span>
+
+            <a href="#" class="group bg-slate-800/30 rounded-xl p-6 border border-slate-700/50 hover:border-green-500/50 transition-all duration-300 hover:bg-slate-800/50">
+                <div class="text-center space-y-3">
+                    <div class="w-12 h-12 mx-auto bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-white group-hover:text-green-400 transition-colors">Python</h3>
+                    <p class="text-sm text-slate-400">20篇文章</p>
+                </div>
+            </a>
+
+            <a href="#" class="group bg-slate-800/30 rounded-xl p-6 border border-slate-700/50 hover:border-orange-500/50 transition-all duration-300 hover:bg-slate-800/50">
+                <div class="text-center space-y-3">
+                    <div class="w-12 h-12 mx-auto bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-white group-hover:text-orange-400 transition-colors">Transformer</h3>
+                    <p class="text-sm text-slate-400">8篇文章</p>
                 </div>
             </a>
         </div>
-    </div>
+    </section>
+
+    <!-- 所有标签 -->
+    <section class="space-y-8">
+        <h2 class="text-2xl font-semibold text-white">所有标签</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <a href="#" class="flex items-center justify-between p-4 bg-slate-800/30 rounded-lg border border-slate-700/50 hover:border-blue-500/50 hover:bg-slate-800/50 transition-all duration-200 group">
+                <span class="text-slate-300 group-hover:text-white transition-colors">机器学习</span>
+                <span class="px-2 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs">18</span>
+            </a>
+            <a href="#" class="flex items-center justify-between p-4 bg-slate-800/30 rounded-lg border border-slate-700/50 hover:border-purple-500/50 hover:bg-slate-800/50 transition-all duration-200 group">
+                <span class="text-slate-300 group-hover:text-white transition-colors">神经网络</span>
+                <span class="px-2 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs">14</span>
+            </a>
+            <a href="#" class="flex items-center justify-between p-4 bg-slate-800/30 rounded-lg border border-slate-700/50 hover:border-green-500/50 hover:bg-slate-800/50 transition-all duration-200 group">
+                <span class="text-slate-300 group-hover:text-white transition-colors">PyTorch</span>
+                <span class="px-2 py-1 bg-green-500/20 text-green-300 rounded-full text-xs">12</span>
+            </a>
+            <a href="#" class="flex items-center justify-between p-4 bg-slate-800/30 rounded-lg border border-slate-700/50 hover:border-orange-500/50 hover:bg-slate-800/50 transition-all duration-200 group">
+                <span class="text-slate-300 group-hover:text-white transition-colors">TensorFlow</span>
+                <span class="px-2 py-1 bg-orange-500/20 text-orange-300 rounded-full text-xs">10</span>
+            </a>
+            <a href="#" class="flex items-center justify-between p-4 bg-slate-800/30 rounded-lg border border-slate-700/50 hover:border-pink-500/50 hover:bg-slate-800/50 transition-all duration-200 group">
+                <span class="text-slate-300 group-hover:text-white transition-colors">计算机视觉</span>
+                <span class="px-2 py-1 bg-pink-500/20 text-pink-300 rounded-full text-xs">9</span>
+            </a>
+            <a href="#" class="flex items-center justify-between p-4 bg-slate-800/30 rounded-lg border border-slate-700/50 hover:border-indigo-500/50 hover:bg-slate-800/50 transition-all duration-200 group">
+                <span class="text-slate-300 group-hover:text-white transition-colors">NLP</span>
+                <span class="px-2 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-xs">11</span>
+            </a>
+            <a href="#" class="flex items-center justify-between p-4 bg-slate-800/30 rounded-lg border border-slate-700/50 hover:border-teal-500/50 hover:bg-slate-800/50 transition-all duration-200 group">
+                <span class="text-slate-300 group-hover:text-white transition-colors">注意力机制</span>
+                <span class="px-2 py-1 bg-teal-500/20 text-teal-300 rounded-full text-xs">7</span>
+            </a>
+            <a href="#" class="flex items-center justify-between p-4 bg-slate-800/30 rounded-lg border border-slate-700/50 hover:border-yellow-500/50 hover:bg-slate-800/50 transition-all duration-200 group">
+                <span class="text-slate-300 group-hover:text-white transition-colors">大语言模型</span>
+                <span class="px-2 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-xs">13</span>
+            </a>
+            <a href="#" class="flex items-center justify-between p-4 bg-slate-800/30 rounded-lg border border-slate-700/50 hover:border-red-500/50 hover:bg-slate-800/50 transition-all duration-200 group">
+                <span class="text-slate-300 group-hover:text-white transition-colors">AI伦理</span>
+                <span class="px-2 py-1 bg-red-500/20 text-red-300 rounded-full text-xs">6</span>
+            </a>
+            <a href="#" class="flex items-center justify-between p-4 bg-slate-800/30 rounded-lg border border-slate-700/50 hover:border-cyan-500/50 hover:bg-slate-800/50 transition-all duration-200 group">
+                <span class="text-slate-300 group-hover:text-white transition-colors">架构设计</span>
+                <span class="px-2 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-xs">8</span>
+            </a>
+            <a href="#" class="flex items-center justify-between p-4 bg-slate-800/30 rounded-lg border border-slate-700/50 hover:border-emerald-500/50 hover:bg-slate-800/50 transition-all duration-200 group">
+                <span class="text-slate-300 group-hover:text-white transition-colors">最佳实践</span>
+                <span class="px-2 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-xs">15</span>
+            </a>
+            <a href="#" class="flex items-center justify-between p-4 bg-slate-800/30 rounded-lg border border-slate-700/50 hover:border-violet-500/50 hover:bg-slate-800/50 transition-all duration-200 group">
+                <span class="text-slate-300 group-hover:text-white transition-colors">初学者指南</span>
+                <span class="px-2 py-1 bg-violet-500/20 text-violet-300 rounded-full text-xs">22</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- 最近更新 -->
+    <section class="space-y-8">
+        <h2 class="text-2xl font-semibold text-white">最近更新</h2>
+        <div class="space-y-4">
+            <a href="#" class="block p-6 bg-slate-800/30 rounded-xl border border-slate-700/50 hover:border-blue-500/50 hover:bg-slate-800/50 transition-all duration-300">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between space-y-2 md:space-y-0">
+                    <div class="space-y-2">
+                        <h3 class="text-lg font-semibold text-white hover:text-blue-400 transition-colors">
+                            神经网络基础：从零开始理解深度学习
+                        </h3>
+                        <div class="flex items-center space-x-4 text-sm text-slate-400">
+                            <span>2024年1月15日</span>
+                            <span>•</span>
+                            <span>8分钟阅读</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs">深度学习</span>
+                        <span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs">神经网络</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="block p-6 bg-slate-800/30 rounded-xl border border-slate-700/50 hover:border-purple-500/50 hover:bg-slate-800/50 transition-all duration-300">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between space-y-2 md:space-y-0">
+                    <div class="space-y-2">
+                        <h3 class="text-lg font-semibold text-white hover:text-purple-400 transition-colors">
+                            多模态AI：视觉与语言的融合
+                        </h3>
+                        <div class="flex items-center space-x-4 text-sm text-slate-400">
+                            <span>2024年1月10日</span>
+                            <span>•</span>
+                            <span>12分钟阅读</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs">多模态</span>
+                        <span class="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-xs">计算机视觉</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="block p-6 bg-slate-800/30 rounded-xl border border-slate-700/50 hover:border-green-500/50 hover:bg-slate-800/50 transition-all duration-300">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between space-y-2 md:space-y-0">
+                    <div class="space-y-2">
+                        <h3 class="text-lg font-semibold text-white hover:text-green-400 transition-colors">
+                            Transformer架构详解
+                        </h3>
+                        <div class="flex items-center space-x-4 text-sm text-slate-400">
+                            <span>2024年1月5日</span>
+                            <span>•</span>
+                            <span>6分钟阅读</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-xs">Transformer</span>
+                        <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-xs">注意力机制</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
 </div>

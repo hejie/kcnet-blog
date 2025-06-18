@@ -1,15 +1,157 @@
-<div class="space-y-8">
-    <!-- 博客文章列表 -->
-    <article class="bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition duration-300">
-        <h2 class="text-2xl font-bold mb-4">
-            <a href="posts/a-guide-to-dark-mode.html" class="hover:text-green-400">神经网络基础</a>
-        </h2>
-        <div class="text-gray-400 mb-4">发布于 2025年6月17日</div>
-        <p class="text-gray-300 mb-4">改善深层神经网络：超参数调试、正则化以及优化。</p>
-        <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1 bg-gray-700 rounded-full text-sm text-green-400">bias</span>
-            <span class="px-3 py-1 bg-gray-700 rounded-full text-sm text-green-400">variance</span>
-            <span class="px-3 py-1 bg-gray-700 rounded-full text-sm text-green-400">regularization</span>
+<div class="space-y-12">
+    <!-- 欢迎区域 -->
+    <section class="text-center space-y-6">
+        <h1 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            欢迎来到我的博客
+        </h1>
+        <p class="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
+            在这里，我分享关于多模态大模型、人工智能和软件开发的见解与经验
+        </p>
+        <div class="flex justify-center space-x-4">
+            <span class="px-4 py-2 bg-slate-800/50 rounded-full text-sm text-slate-300">AI/ML</span>
+            <span class="px-4 py-2 bg-slate-800/50 rounded-full text-sm text-slate-300">多模态</span>
+            <span class="px-4 py-2 bg-slate-800/50 rounded-full text-sm text-slate-300">技术分享</span>
         </div>
-    </article>
+    </section>
+
+    <!-- 最新文章 -->
+    <section class="space-y-8">
+        <div class="flex items-center justify-between">
+            <h2 class="text-2xl font-semibold text-white">最新文章</h2>
+            <a href="/tags" class="text-blue-400 hover:text-blue-300 transition-colors text-sm">查看全部 →</a>
+        </div>
+        
+        <div class="grid gap-8 md:grid-cols-2">
+            <!-- 文章卡片 1 -->
+            <article class="group bg-slate-800/30 rounded-xl p-6 hover:bg-slate-800/50 transition-all duration-300 border border-slate-700/50 hover:border-slate-600/50">
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-2 text-sm text-slate-400">
+                        <span>2024年1月15日</span>
+                        <span>•</span>
+                        <span>8分钟阅读</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors">
+                        <a href="/posts/neural-network-basics">神经网络基础：从零开始理解深度学习</a>
+                    </h3>
+                    <p class="text-slate-300 leading-relaxed">
+                        深入探讨神经网络的基本概念，包括前向传播、反向传播和梯度下降等核心算法，为理解现代深度学习奠定基础。
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs">深度学习</span>
+                        <span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs">神经网络</span>
+                        <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-xs">机器学习</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 文章卡片 2 -->
+            <article class="group bg-slate-800/30 rounded-xl p-6 hover:bg-slate-800/50 transition-all duration-300 border border-slate-700/50 hover:border-slate-600/50">
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-2 text-sm text-slate-400">
+                        <span>2024年1月10日</span>
+                        <span>•</span>
+                        <span>12分钟阅读</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors">
+                        <a href="/posts/multimodal-ai">多模态AI：视觉与语言的融合</a>
+                    </h3>
+                    <p class="text-slate-300 leading-relaxed">
+                        探索多模态人工智能的最新发展，了解如何将视觉、文本、音频等多种信息源整合，实现更智能的AI系统。
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs">多模态</span>
+                        <span class="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-xs">计算机视觉</span>
+                        <span class="px-3 py-1 bg-pink-500/20 text-pink-300 rounded-full text-xs">NLP</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 文章卡片 3 -->
+            <article class="group bg-slate-800/30 rounded-xl p-6 hover:bg-slate-800/50 transition-all duration-300 border border-slate-700/50 hover:border-slate-600/50">
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-2 text-sm text-slate-400">
+                        <span>2024年1月5日</span>
+                        <span>•</span>
+                        <span>6分钟阅读</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors">
+                        <a href="/posts/transformer-architecture">Transformer架构详解</a>
+                    </h3>
+                    <p class="text-slate-300 leading-relaxed">
+                        详细解析Transformer架构的工作原理，包括自注意力机制、位置编码等核心组件，以及其在现代AI模型中的应用。
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs">Transformer</span>
+                        <span class="px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-xs">注意力机制</span>
+                        <span class="px-3 py-1 bg-red-500/20 text-red-300 rounded-full text-xs">架构设计</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 文章卡片 4 -->
+            <article class="group bg-slate-800/30 rounded-xl p-6 hover:bg-slate-800/50 transition-all duration-300 border border-slate-700/50 hover:border-slate-600/50">
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-2 text-sm text-slate-400">
+                        <span>2024年1月1日</span>
+                        <span>•</span>
+                        <span>10分钟阅读</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors">
+                        <a href="/posts/ai-ethics">AI伦理与责任：构建可信的人工智能</a>
+                    </h3>
+                    <p class="text-slate-300 leading-relaxed">
+                        讨论人工智能发展中的伦理问题，包括偏见、透明度、隐私保护等关键议题，以及如何构建负责任和可信的AI系统。
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs">AI伦理</span>
+                        <span class="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-xs">负责任AI</span>
+                        <span class="px-3 py-1 bg-teal-500/20 text-teal-300 rounded-full text-xs">社会影响</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- 技术栈 -->
+    <section class="space-y-8">
+        <h2 class="text-2xl font-semibold text-white">技术栈</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="text-center space-y-3">
+                <div class="w-16 h-16 mx-auto bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center">
+                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </div>
+                <h3 class="font-medium text-white">Python</h3>
+                <p class="text-sm text-slate-400">机器学习</p>
+            </div>
+            <div class="text-center space-y-3">
+                <div class="w-16 h-16 mx-auto bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center">
+                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </div>
+                <h3 class="font-medium text-white">PyTorch</h3>
+                <p class="text-sm text-slate-400">深度学习</p>
+            </div>
+            <div class="text-center space-y-3">
+                <div class="w-16 h-16 mx-auto bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center">
+                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </div>
+                <h3 class="font-medium text-white">TensorFlow</h3>
+                <p class="text-sm text-slate-400">神经网络</p>
+            </div>
+            <div class="text-center space-y-3">
+                <div class="w-16 h-16 mx-auto bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center">
+                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </div>
+                <h3 class="font-medium text-white">React</h3>
+                <p class="text-sm text-slate-400">前端开发</p>
+            </div>
+        </div>
+    </section>
 </div>
