@@ -6,11 +6,11 @@
     <title>我的博客</title>    <script src="https://cdn.tailwindcss.com"></script>
     <link href="/assets/css/style.css" rel="stylesheet">
 </head>
-<body class="bg-gray-900 text-gray-100">    <div class="relative flex flex-col md:flex-row min-h-screen">
+<body class="bg-gray-900 text-gray-100">    <div class="min-h-screen bg-gray-900">
         <!-- 侧边栏 -->
-        <aside class="w-full md:w-64 p-6 md:fixed md:h-screen overflow-y-auto border-r border-gray-800">
+        <aside class="fixed top-0 left-0 z-40 w-64 h-screen bg-gray-900 p-6 border-r border-gray-800">
             <div class="flex flex-col items-center mb-8">
-                <img src="assets/images/avatar.png" alt="头像" class="w-32 h-32 rounded-full mb-4">
+                <img src="/assets/images/avatar.png" alt="头像" class="w-32 h-32 rounded-full mb-4">
                 <h1 class="text-2xl font-bold mb-2">kcnet</h1>
                 <p class="text-gray-400 text-center">专注于多模态大模型</p>
             </div><nav class="space-y-4">
@@ -27,10 +27,10 @@
                         </svg>
                     </a>
                 </div>
-            </div>
-        </aside>        <!-- 主要内容区 -->
-        <main class="w-full md:ml-64 p-6">
-            <div class="w-full transition-all duration-300" id="main-content">
+            </div>        </aside>
+        <!-- 主要内容区 -->
+        <main class="ml-64 p-6">
+            <div class="w-full max-w-4xl mx-auto transition-all duration-300" id="main-content">
                 <!-- 动态内容将在这里加载 -->
             </div>
         </main>
