@@ -16,11 +16,10 @@
                 <h1 class="text-2xl font-bold mb-2">kcnet</h1>
                 <p class="text-gray-400 text-center">专注于多模态大模型</p>
             </div>
-            
-            <nav class="space-y-4">
-                <a href="index.html" class="block py-2 px-4 rounded bg-gray-800 text-green-400">首页</a>
-                <a href="about.html" class="block py-2 px-4 rounded hover:bg-gray-800 hover:text-green-400">关于</a>
-                <a href="tags.html" class="block py-2 px-4 rounded hover:bg-gray-800 hover:text-green-400">标签</a>
+              <nav class="space-y-4">
+                <a href="#" data-path="/" class="block py-2 px-4 rounded bg-gray-800 text-green-400">首页</a>
+                <a href="#" data-path="/about" class="block py-2 px-4 rounded hover:bg-gray-800 hover:text-green-400">关于</a>
+                <a href="#" data-path="/tags" class="block py-2 px-4 rounded hover:bg-gray-800 hover:text-green-400">标签</a>
             </nav>
 
             <div class="mt-8 pt-8 border-t border-gray-800">
@@ -32,26 +31,10 @@
                     </a>
                 </div>
             </div>
-        </aside>
-
-        <!-- 主要内容区 -->
+        </aside>        <!-- 主要内容区 -->
         <main class="w-full md:w-3/4 md:ml-[25%] p-6">
-            <div class="max-w-3xl mx-auto">
-                <div class="space-y-8">
-                    <!-- 博客文章列表 -->
-                    <article class="bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition duration-300">
-                        <h2 class="text-2xl font-bold mb-4">
-                            <a href="posts/a-guide-to-dark-mode.html" class="hover:text-green-400">神经网络基础</a>
-                        </h2>
-                        <div class="text-gray-400 mb-4">发布于 2025年6月17日</div>
-                        <p class="text-gray-300 mb-4">改善深层神经网络：超参数调试、正则化以及优化。</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-gray-700 rounded-full text-sm text-green-400">bias</span>
-                            <span class="px-3 py-1 bg-gray-700 rounded-full text-sm text-green-400">variance</span>
-                            <span class="px-3 py-1 bg-gray-700 rounded-full text-sm text-green-400">regularization</span>
-                        </div>
-                    </article>
-                </div>
+            <div class="max-w-3xl mx-auto" id="main-content">
+                <!-- 动态内容将在这里加载 -->
             </div>
         </main>
     </div>
