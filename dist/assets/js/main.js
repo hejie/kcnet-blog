@@ -15,12 +15,6 @@ async function loadContent(path) {
         
         // 更新活动导航项
         updateActiveNav(path);
-        
-        // 更新浏览器历史
-        const currentPath = Object.keys(routes).find(key => routes[key] === path);
-        if (currentPath) {
-            history.pushState({ path }, '', currentPath === '/' ? 'index.html' : currentPath.slice(1) + '.html');
-        }
     } catch (error) {
         console.error('Error loading page:', error);
         document.getElementById('main-content').innerHTML = '<div class="text-center text-red-500">加载失败，请稍后重试</div>';
@@ -68,27 +62,29 @@ function toggleDarkMode() {
     localStorage.setItem('darkMode', !isDark);
 }
 
+// 获取当前路径对应的内容路径
+function getCurrentContentPath() {
+    const path = window.location.hash.slice(1) || '/';
+    return routes[path] || routes['/'];
+}
+
 // 初始化页面
 document.addEventListener('DOMContentLoaded', () => {
-    // 创建内容目录
-    const mainContentDir = 'content';
-    
     // 设置导航链接点击事件
     document.querySelectorAll('nav a').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const path = link.getAttribute('data-path');
             if (routes[path]) {
-                loadContent(routes[path]);
+                window.location.hash = path;
             }
         });
     });
 
-    // 处理浏览器前进/后退
-    window.addEventListener('popstate', (event) => {
-        if (event.state && event.state.path) {
-            loadContent(event.state.path);
-        }
+    // 处理 hash 变化
+    window.addEventListener('hashchange', () => {
+        const contentPath = getCurrentContentPath();
+        loadContent(contentPath);
     });
 
     // 初始化暗色模式
@@ -96,6 +92,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (darkMode === 'false') {
         document.documentElement.classList.remove('dark');
     }
+
+    // 加载初始内容
+    loadContent(getCurrentContentPath());
 
     // 处理图片加载
     handleImageLoad();
