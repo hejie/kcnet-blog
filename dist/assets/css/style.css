@@ -1,4 +1,13 @@
-/* 自定义滚动条样式 */
+/* 基础样式 */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+}
+
+/* 滚动条样式 */
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -16,35 +25,11 @@
     background: #5a5a5a;
 }
 
-/* 平滑滚动 */
-html {
-    scroll-behavior: smooth;
-}
-
-/* 图片加载过渡效果 */
-img {
-    transition: opacity 0.3s ease-in-out;
-}
-
-img[loading] {
-    opacity: 0;
-}
-
-img.loaded {
-    opacity: 1;
-}
-
-/* 链接悬停效果 */
-a {
-    transition: all 0.3s ease;
-}
-
-/* 内容过渡动画 */
+/* 内容过渡效果 */
 #main-content {
     opacity: 0;
     transform: translateX(10px);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    width: 100%;
 }
 
 #main-content.loaded {
@@ -52,33 +37,28 @@ a {
     transform: translateX(0);
 }
 
-/* 防止内容跳动 */
-#main-content > div {
-    will-change: transform;
-    backface-visibility: hidden;
-}
-
-/* 移动端适配 */
+/* 移动端菜单过渡 */
 @media (max-width: 768px) {
     aside {
-        position: relative !important;
-        height: auto !important;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
     }
-    
-    main {
-        margin-left: 0 !important;
+
+    aside.show {
+        transform: translateX(0);
     }
 }
 
-/* 固定宽度布局 */
+/* 确保内容不会被侧边栏覆盖 */
 @media (min-width: 768px) {
     main {
-        width: calc(100% - 256px);
+        margin-left: 16rem; /* 64px * 4 = 256px = 16rem */
     }
-    
-    #main-content > div {
-        width: 100%;
-        max-width: calc(100% - 2rem);
-        margin: 0 auto;
-    }
+}
+
+/* 防止内容跳动 */
+#main-content > div {
+    min-height: calc(100vh - 3rem);
+    will-change: transform;
+    backface-visibility: hidden;
 }
