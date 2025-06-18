@@ -6,15 +6,20 @@ const routes = {
 };
 
 // 加载页面内容
-async function loadContent(path) {
+async function loadContent(contentPath, routePath) {
     try {
-        const response = await fetch(path);
+        const response = await fetch(contentPath);
         if (!response.ok) throw new Error('Page not found');
         const content = await response.text();
         document.getElementById('main-content').innerHTML = content;
         
         // 更新活动导航项
-        updateActiveNav(path);
+        updateActiveNav(contentPath);
+        
+        // 更新浏览器URL（不触发页面刷新）
+        if (routePath) {
+            history.pushState({ contentPath }, '', routePath);
+        }
     } catch (error) {
         console.error('Error loading page:', error);
         document.getElementById('main-content').innerHTML = '<div class="text-center text-red-500">加载失败，请稍后重试</div>';
@@ -64,8 +69,12 @@ function toggleDarkMode() {
 
 // 获取当前路径对应的内容路径
 function getCurrentContentPath() {
-    const path = window.location.hash.slice(1) || '/';
-    return routes[path] || routes['/'];
+    const path = window.location.pathname || '/';
+    // 移除开头的域名部分，只保留路径
+    const cleanPath = path.replace(/^https?:\/\/[^\/]+/, '');
+    // 如果路径以 .html 结尾，去掉 .html
+    const routePath = cleanPath.replace(/\.html$/, '') || '/';
+    return routes[routePath] || routes['/'];
 }
 
 // 初始化页面
@@ -76,15 +85,19 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const path = link.getAttribute('data-path');
             if (routes[path]) {
-                window.location.hash = path;
+                const routePath = path === '/' ? '/' : path + '.html';
+                loadContent(routes[path], routePath);
             }
         });
     });
 
-    // 处理 hash 变化
-    window.addEventListener('hashchange', () => {
-        const contentPath = getCurrentContentPath();
-        loadContent(contentPath);
+    // 处理浏览器前进/后退
+    window.addEventListener('popstate', (event) => {
+        if (event.state && event.state.contentPath) {
+            loadContent(event.state.contentPath);
+        } else {
+            loadContent(getCurrentContentPath());
+        }
     });
 
     // 初始化暗色模式
