@@ -43,12 +43,19 @@ a {
 #main-content {
     opacity: 0;
     transform: translateX(10px);
-    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
 }
 
 #main-content.loaded {
     opacity: 1;
     transform: translateX(0);
+}
+
+/* 防止内容跳动 */
+#main-content > div {
+    will-change: transform;
+    backface-visibility: hidden;
 }
 
 /* 移动端适配 */
@@ -67,5 +74,11 @@ a {
 @media (min-width: 768px) {
     main {
         width: calc(100% - 256px);
+    }
+    
+    #main-content > div {
+        width: 100%;
+        max-width: calc(100% - 2rem);
+        margin: 0 auto;
     }
 }

@@ -9,28 +9,35 @@ const routes = {
 async function loadContent(contentPath, routePath) {
     try {
         const mainContent = document.getElementById('main-content');
+        
+        // 开始淡出动画
         mainContent.classList.remove('loaded');
+        await new Promise(resolve => setTimeout(resolve, 150));
         
-        // 等待过渡动画完成
-        await new Promise(resolve => setTimeout(resolve, 300));
-        
+        // 预加载新内容
         const response = await fetch(contentPath);
         if (!response.ok) throw new Error('Page not found');
         const content = await response.text();
+        
+        // 应用新内容
+        mainContent.style.opacity = '0';
+        await new Promise(resolve => setTimeout(resolve, 50));
         mainContent.innerHTML = content;
         
-        // 触发重排后添加loaded类
+        // 强制重排完成后开始淡入
+        void mainContent.offsetHeight;
         requestAnimationFrame(() => {
             mainContent.classList.add('loaded');
+            mainContent.style.opacity = '';
+            
+            // 更新活动导航项
+            updateActiveNav(contentPath);
+            
+            // 更新浏览器URL（不触发页面刷新）
+            if (routePath) {
+                history.pushState({ contentPath }, '', routePath);
+            }
         });
-        
-        // 更新活动导航项
-        updateActiveNav(contentPath);
-        
-        // 更新浏览器URL（不触发页面刷新）
-        if (routePath) {
-            history.pushState({ contentPath }, '', routePath);
-        }
     } catch (error) {
         console.error('Error loading page:', error);
         document.getElementById('main-content').innerHTML = '<div class="text-center text-red-500">加载失败，请稍后重试</div>';
@@ -115,16 +122,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const darkMode = localStorage.getItem('darkMode');
     if (darkMode === 'false') {
         document.documentElement.classList.remove('dark');
-    }
-
-    // 加载初始内容
+    }    // 加载初始内容
     loadContent(getCurrentContentPath());
 
     // 处理图片加载
     handleImageLoad();
-
-    // 加载初始页面
-    const currentPath = window.location.pathname;
-    const defaultPath = routes['/'];
-    loadContent(defaultPath);
 });
