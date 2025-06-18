@@ -82,16 +82,3 @@ a {
         margin: 0 auto;
     }
 }
-
-/* dist/assets/css/style.css */
-
-/* ... 你已有的其他样式 ... */
-
-/* 导航链接激活状态 */
-.nav-link.active {
-    color: #10B981; /* 你的主题绿色 */
-    background-color: rgba(16, 185, 129, 0.1); /* 一个淡淡的绿色背景 */
-    border-radius: 8px; /* 圆角 */
-    padding: 8px 12px;
-    display: block;
-}
