@@ -39,6 +39,18 @@ a {
     transition: all 0.3s ease;
 }
 
+/* 内容过渡动画 */
+#main-content {
+    opacity: 0;
+    transform: translateX(10px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+#main-content.loaded {
+    opacity: 1;
+    transform: translateX(0);
+}
+
 /* 移动端适配 */
 @media (max-width: 768px) {
     aside {
@@ -48,5 +60,12 @@ a {
     
     main {
         margin-left: 0 !important;
+    }
+}
+
+/* 固定宽度布局 */
+@media (min-width: 768px) {
+    main {
+        width: calc(100% - 256px);
     }
 }

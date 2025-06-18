@@ -8,10 +8,21 @@ const routes = {
 // 加载页面内容
 async function loadContent(contentPath, routePath) {
     try {
+        const mainContent = document.getElementById('main-content');
+        mainContent.classList.remove('loaded');
+        
+        // 等待过渡动画完成
+        await new Promise(resolve => setTimeout(resolve, 300));
+        
         const response = await fetch(contentPath);
         if (!response.ok) throw new Error('Page not found');
         const content = await response.text();
-        document.getElementById('main-content').innerHTML = content;
+        mainContent.innerHTML = content;
+        
+        // 触发重排后添加loaded类
+        requestAnimationFrame(() => {
+            mainContent.classList.add('loaded');
+        });
         
         // 更新活动导航项
         updateActiveNav(contentPath);
