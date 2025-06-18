@@ -122,8 +122,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const darkMode = localStorage.getItem('darkMode');
     if (darkMode === 'false') {
         document.documentElement.classList.remove('dark');
-    }    // 加载初始内容
-    loadContent(getCurrentContentPath());
+    }    // 获取当前页面路径
+    const currentContentPath = getCurrentContentPath();
+    
+    // 避免重复加载，只有在主内容区为空时才加载
+    const mainContent = document.getElementById('main-content');
+    if (!mainContent.children.length) {
+        loadContent(currentContentPath);
+    }
 
     // 处理图片加载
     handleImageLoad();
