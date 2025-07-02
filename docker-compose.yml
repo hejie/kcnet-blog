@@ -9,5 +9,5 @@ services:
     volumes:
       # 这个卷挂载可以实现热更新：你在本地 dist 文件夹做的任何修改，都会立刻反映到容器里，无需重启
       - ./dist:/usr/share/nginx/html:ro # ro = read-only, 更安全
-      - /etc/letsencrypt:/etc/nginx/certs:ro
+      - ./letsencrypt:/etc/nginx/certs:ro
     restart: unless-stopped
