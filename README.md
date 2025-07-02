@@ -20,29 +20,6 @@
 - **容器化**: Docker & Docker Compose
 - **部署**: 静态网站部署
 
-## 📁 项目结构
-
-```
-kcnet-blog/
-├── dist/                  # 静态文件目录
-│   ├── assets/            # 静态资源
-│   │   ├── css/           # 样式文件
-│   │   ├── js/            # JavaScript文件
-│   │   └── images/        # 图片资源
-│   ├── content/           # 页面内容
-│   │   ├── home.html      # 首页内容
-│   │   ├── about.html     # 关于页面内容
-│   │   └── tags.html      # 标签页面内容
-│   ├── posts/             # 博客文章
-│   │   └── neural-network-basics.html
-│   ├── index.html         # 主页面
-│   └── 404.html           # 404错误页面
-├── docker-compose.yml     # Docker Compose配置
-├── Dockerfile             # Docker镜像构建文件
-├── nginx.conf             # Nginx配置文件
-└── README.md              # 项目说明文档
-```
-
 ## 🚀 快速开始
 
 ### 本地开发
@@ -57,17 +34,12 @@ kcnet-blog/
 
 1. **构建并启动容器**
    ```bash
-   docker-compose up -d
+   docker compose up -d
    ```
 
 3. **查看日志**
    ```bash
-   docker-compose logs -f
-   ```
-
-4. **停止服务**
-   ```bash
-   docker-compose down
+   docker compose logs -f
    ```
 
 ### 移动端优化
