@@ -1,6 +1,6 @@
 # docker-compose.yml
 services:
-  blog:
+  web:
     container_name: kcnet-blog
     # 从当前目录的 Dockerfile 构建镜像
     build: .
