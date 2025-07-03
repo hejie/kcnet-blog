@@ -10,7 +10,7 @@
 </head>
 <body class="bg-slate-900 text-slate-100 antialiased">
     <div class="min-h-screen flex items-center justify-center p-4">
-        <div class="text-center space-y-8 max-w-md">
+        <div class="relative z-10 text-center space-y-8 max-w-md">
             <!-- 404图标 -->
             <div class="relative">
                 <div class="w-32 h-32 mx-auto bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mb-6">
@@ -43,7 +43,7 @@
                     </svg>
                     返回首页
                 </a>
-                <button onclick="history.back()" class="px-6 py-3 bg-slate-700 hover:bg-slate-600 text-white font-medium rounded-lg transition-colors duration-200 flex items-center justify-center">
+                <button id="back-button" class="px-6 py-3 bg-slate-700 hover:bg-slate-600 text-white font-medium rounded-lg transition-colors duration-200 flex items-center justify-center">
                     <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                     </svg>
@@ -65,8 +65,8 @@
             </div>
 
             <!-- 装饰元素 -->
-            <div class="absolute top-10 left-10 w-20 h-20 bg-blue-500/10 rounded-full blur-xl"></div>
-            <div class="absolute bottom-10 right-10 w-32 h-32 bg-purple-500/10 rounded-full blur-xl"></div>
+            <div class="pointer-events-none absolute top-10 left-10 w-20 h-20 bg-blue-500/10 rounded-full blur-xl"></div>
+            <div class="pointer-events-none absolute bottom-10 right-10 w-32 h-32 bg-purple-500/10 rounded-full blur-xl"></div>
         </div>
     </div>
 
@@ -95,7 +95,15 @@
                     button.style.transform = 'translateY(0)';
                 });
             });
+
+            const backButton = document.getElementById('back-button');
+            if (backButton) {
+               backButton.addEventListener('click', () => {
+                    history.back();
+                });
+            }
         });
+
     </script>
 </body>
 </html>
