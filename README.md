@@ -86,7 +86,9 @@ npm install
     此命令会在后台构建 Docker 镜像并启动 Nginx 服务。
 
     ```bash
-    docker compose up -d
+    sudo docker compose down --volumes
+    sudo docker system prune -af
+    sudo docker compose up --build -d
     ```
 
 2.  **查看日志**
