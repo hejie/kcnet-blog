@@ -5,9 +5,12 @@ services:
     # 从当前目录的 Dockerfile 构建镜像
     build: .
     ports:
+      - "80:80"
       - "443:443"
     volumes:
       # 这个卷挂载可以实现热更新：你在本地 dist 文件夹做的任何修改，都会立刻反映到容器里，无需重启
       - ./dist:/usr/share/nginx/html:ro # ro = read-only, 更安全
+      - ./default_site:/usr/share/nginx/default_site:ro
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
       - ./letsencrypt:/etc/nginx/certs:ro
     restart: unless-stopped
