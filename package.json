@@ -1,0 +1,26 @@
+{
+  "name": "kcnet-blog",
+  "version": "1.0.0",
+  "description": "一个专注于多模态大模型和人工智能技术的个人博客，采用极简主义设计风格，内容优先的用户体验。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tailwindcss -i ./src/input.css -o ./dist/assets/css/style.css --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hejie/kcnet-blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hejie/kcnet-blog/issues"
+  },
+  "homepage": "https://github.com/hejie/kcnet-blog#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17"
+  }
+}
