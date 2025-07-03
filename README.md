@@ -98,46 +98,6 @@ npm install
     docker compose logs -f
     ```
 
-## 🤝 贡献与代码管理
-
-为了保持仓库的整洁，请遵循以下 Git 工作流程。
-
-1.  **配置 .gitignore**
-    确保 `.gitignore` 文件包含了需要被忽略的目录和文件。这可以防止将自动生成的或敏感的文件提交到仓库。
-
-    ```
-    # Node.js 依赖包 (自动生成)
-    /node_modules
-
-    # 构建产物 (自动生成)
-    /dist/assets/css/style.css
-
-    # Docker & SSL
-    /letsencrypt
-    ```
-
-2.  **提交更改的标准流程**
-    在进行更改（例如，修改了 HTML 或添加了新功能）后，请遵循以下步骤提交。
-
-    ```bash
-    # 1. (如果需要) 重新构建你的 CSS 文件
-    npm run build
-
-    # 2. 将所有应该追踪的文件添加到暂存区
-    # Git 会根据 .gitignore 自动忽略不必要的文件
-    git add .
-
-    # 3. 提交你的更改，并附上一条清晰的说明
-    git commit -m "feat: 添加了新的页面并更新样式"
-
-    # 4. 将提交推送到远程仓库
-    git push
-    ```
-
-## 📄 许可证
-
-本项目采用 MIT 许可证 - 查看 `LICENSE` 文件了解详情。
-
 ## 📞 联系方式
 
   - **GitHub**: [@kcnet](https://github.com/hejie)
