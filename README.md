@@ -108,7 +108,7 @@ docker compose -f /home/ubuntu/app/kcnet-blog/docker-compose.yml restart web
 # docker compose -f /path/to/project-three/docker-compose.yml restart service-name
 echo "All services reloaded."
 
-#将用户添加到 docker 组
+#将用户添加到docker组，需重新连接SSH会话生效
 sudo usermod -aG docker ubuntu 
 
 # 5. 安装
