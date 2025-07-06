@@ -21,6 +21,117 @@
 
 本指南将引导你完成从环境配置到项目部署的完整流程。
 
+### acme.sh 安装与使用完整命令指南
+
+**目标**：使用 `acme.sh` 通过 Cloudflare 的 DNS API，为您的域名申请一张通配符证书，并将其安装到指定目录，同时配置好全自动续签。
+
+#### 前提
+
+  * 您已经拥有一个 Cloudflare 账户和一个域名。
+  * 您已经按照之前的步骤，在 Cloudflare 上创建了一个有 `DNS:Edit` 权限的 API 令牌（Token）。
+  * 您以一个普通用户（例如 `ubuntu`）通过 SSH 登录到您的服务器。
+
+-----
+
+### 第 1 步：安装 acme.sh
+
+执行官方安装命令，将 `your_email@example.com` 替换为您自己的真实邮箱。
+
+```bash
+curl https://get.acme.sh | sh -s email=your_email@example.com
+```
+
+  * **作用**：下载并安装 `acme.sh` 到您当前用户的主目录下 (`/home/ubuntu/.acme.sh/`)，并自动创建一个用于续签的定时任务。
+
+-----
+
+### 第 2 步：配置 Cloudflare API 凭证
+
+执行 `export` 命令，将【您的Cloudflare API令牌】替换为您保存的真实令牌字符串。
+
+```bash
+export CF_Token="【您的Cloudflare API令牌】"
+```
+
+  * **作用**：在当前终端会话中设置环境变量，让 `acme.sh` 知道如何登录 Cloudflare。
+  * **注意**：此命令仅在当前窗口有效，关闭后会失效。但 `acme.sh` 在成功执行一次后，会将凭证加密保存在其配置文件中，供将来自动续签使用。
+
+-----
+
+### 第 3 步：设置默认证书颁发机构（CA）
+
+为了避免遇到速率限制或默认 CA 的问题，建议明确指定使用 Let's Encrypt。
+
+```bash
+默认是ZeroSSL
+/home/ubuntu/.acme.sh/acme.sh --set-default-ca --server zerossl
+也可以转换到letsencrypt
+/home/ubuntu/.acme.sh/acme.sh --set-default-ca --server letsencrypt
+```
+
+-----
+
+### 第 4 步：签发证书
+
+使用 `acme.sh` 的完整路径来执行签发命令。将 `your_domain.com` 替换为您自己的域名。
+
+```bash
+/home/ubuntu/.acme.sh/acme.sh --issue --dns dns_cf -d your_domain.com -d '*.your_domain.com' --ecc
+```
+
+  * **`--issue`**: 签发操作。
+  * **`--dns dns_cf`**: 指定使用 Cloudflare DNS 进行验证。
+  * **`-d your_domain.com`**: 为主域名申请。
+  * **`-d '*.your_domain.com'`**: 为所有子域名申请通配符证书。
+  * **`--ecc`**: 申请 ECC 证书（性能更好），如果不需要可以去掉。
+
+-----
+
+### 第 5 步：安装证书到指定目录（核心步骤）
+
+这是将证书部署到应用（如 Xray）并配置自动化的关键一步。
+
+```bash
+# 1. 创建用于存放证书的目录 (如果还没创建)
+sudo mkdir -p /etc/app/certs
+
+# 2. 执行安装命令
+新建文件
+vim /home/ubuntu/app/reload_services.sh
+文件内容
+#!/bin/bash
+# 3. 重启 kcnet-blog 项目的 web 服务
+echo "Reloading kcnet-blog..."
+docker compose -f /home/ubuntu/app/kcnet-blog/docker-compose.yml restart web
+# 4. 如果还有其他项目，继续在下面添加
+# echo "Reloading project-three..."
+# docker compose -f /path/to/project-three/docker-compose.yml restart service-name
+echo "All services reloaded."
+
+# 5. 安装
+sudo /home/ubuntu/.acme.sh/acme.sh --install-cert -d your_domain.com --ecc \
+--key-file       /etc/app/certs/private.key  \
+--fullchain-file /etc/app/certs/certificate.crt \
+--reloadcmd      "/home/ubuntu/app/reload_services.sh"
+```
+
+  * **`sudo /home/ubuntu/.acme.sh/acme.sh`**: 使用 `sudo` 配合完整路径，解决权限问题。
+  * **`--install-cert -d your_domain.com`**: 指定为哪个域名安装证书。
+  * **`--key-file` 和 `--fullchain-file`**: 指定证书私钥和公钥的最终存放路径。
+  * **`--reloadcmd "..."`**: **自动化核心**。在未来每次自动续签成功后，`acme.sh` 都会自动执行这条命令，来重启您的服务以加载新证书。请确保 `docker-compose.yml` 的路径是正确的。
+
+-----
+
+### 第 6 步：(可选，为方便) 添加别名
+
+如果您觉得每次都输入完整路径很麻烦，可以执行以下命令，为 `acme.sh` 创建一个快捷方式。
+
+```bash
+echo 'alias acme.sh=/home/ubuntu/.acme.sh/acme.sh' >> ~/.bashrc && source ~/.bashrc
+```
+
+执行后，您就可以在任何地方直接使用 `acme.sh` 命令了。
+
 ### 第1步：环境准备 (Prerequisites)
 
 在开始之前，请确保你的系统 (如 Ubuntu) 已安装 `git`。然后，你需要安装一个稳定版本的 Node.js 和 npm。
