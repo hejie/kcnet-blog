@@ -12,5 +12,5 @@ services:
       - ./dist:/usr/share/nginx/html:ro # ro = read-only, 更安全
       - ./default_site:/usr/share/nginx/default_site:ro
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./letsencrypt:/etc/nginx/certs:ro
+      - /home/ubuntu/app/certs:/etc/nginx/certs:ro
     restart: unless-stopped
