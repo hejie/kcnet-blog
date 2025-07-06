@@ -108,6 +108,9 @@ docker compose -f /home/ubuntu/app/kcnet-blog/docker-compose.yml restart web
 # docker compose -f /path/to/project-three/docker-compose.yml restart service-name
 echo "All services reloaded."
 
+#将用户添加到 docker 组
+sudo usermod -aG docker ubuntu 
+
 # 5. 安装
 sudo /home/ubuntu/.acme.sh/acme.sh --install-cert -d your_domain.com --ecc \
 --key-file       /etc/app/certs/private.key  \
